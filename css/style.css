@@ -358,6 +358,9 @@ a:hover { color: var(--gold); text-decoration: underline; }
 .site-footer a { color: #a99e85; display: inline-block; padding: 4px 0; }
 .site-footer a:hover { color: var(--gold-soft); }
 .site-footer__legal { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 16px; }
+.site-footer .credit { color: #6f685a; font-size: 13px; }
+.site-footer .credit a { color: #857c6b; padding: 0; }
+.site-footer .credit a:hover { color: var(--gold-soft); }
 
 /* ---------- Tekstpagina's (privacy, 404) ---------- */
 
