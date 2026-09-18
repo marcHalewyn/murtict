@@ -1,0 +1,33 @@
+# Netlify-configuratie voor laptopencomputerreparatie.nl
+# Statische site: er is geen build-stap, alles in deze map wordt gepubliceerd.
+
+[build]
+  publish = "."
+  command = ""
+
+# --- Beveiligingsheaders ---
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=(), interest-cohort=()"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains"
+
+# --- Caching: afbeeldingen en stylesheet lang cachen ---
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# HTML niet lang cachen, zodat tekstwijzigingen direct zichtbaar zijn
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
